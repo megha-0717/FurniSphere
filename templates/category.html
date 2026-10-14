@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+      <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+     
+    <style>
+        body{
+    background:#f8f5f1;
+    font-family: 'Poppins', sans-serif;
+}
+.sale-bar{
+      background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      color:#fff;
+      text-align:center;
+      padding:10px 15px;
+      font-size:14px;
+      letter-spacing:0.5px;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      position:absolute;
+      top:18px;
+      left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    .custom-navbar{
+        background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      /* background:rgba(255,255,255,0.10); */
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:18px;
+      padding:14px 22px;
+    }
+
+    .navbar-brand{
+      color:black !important;
+      font-size:1.9rem;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
+    .nav-link{
+      color:black !important;
+      font-weight:500;
+      margin:0 10px;
+      position:relative;
+    }
+
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-3px;
+      width:0;
+      height:2px;
+      background:black;
+      transition:0.3s;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+
+    .search-box{
+      background:black;
+      border:1px solid rgba(255,255,255,0.25);
+      color:black;
+      border-radius:40px;
+      padding:10px 16px;
+      width:240px;
+      outline:none;
+    }
+
+    .search-box::placeholder{
+      color:#eee;
+    }
+
+    .nav-icons i{
+      color:black;
+      font-size:1.15rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .nav-icons i:hover{
+      transform:translateY(-2px);
+      color:var(--accent);
+    }
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      background-color:cream;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      padding-top:120px;
+    }
+    .hero-content{
+      max-width:680px;
+      color:#fff;
+    }
+
+    .hero-subtitle{
+      display:inline-block;
+      color:var(--accent);
+      font-size:15px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .hero-content h1{
+      font-size:clamp(2.8rem, 5vw, 5.2rem);
+      line-height:1.08;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+
+    .highlight{
+      color:var(--accent);
+    }
+
+    .hero-content p{
+      font-size:1.08rem;
+      line-height:1.9;
+      color:#eee;
+      max-width:560px;
+      margin-bottom:32px;
+    }
+
+    .hero-btns{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn-main{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-main:hover{
+      background:var(--primary-dark);
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline-light-custom{
+      border:1px solid rgba(255,255,255,0.6);
+      color:#fff;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      background:transparent;
+    }
+
+    .btn-outline-light-custom:hover{
+      background:#fff;
+      color:var(--text);
+    }
+
+.section-title{
+    text-align:center;
+    margin:50px 0;
+}
+
+.product-card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+}
+
+.product-card img{
+    height:250px;
+    object-fit:cover;
+}
+
+.price{
+    color:#8B5E3C;
+    font-size:22px;
+    font-weight:600;
+}
+
+.wishlist-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:none;
+    background:#fff;
+}
+
+.add-cart{
+    background:#8B5E3C;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+}
+
+.add-cart:hover{
+    background:#6f472b;
+    color:white;
+}
+
+        /* body{
+            background-color: #f8f5f0;
+        } */
+.category-card{
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+.category-card:hover{
+            transform: translateY(-8px);
+        }
+
+.category-card img{
+            height: 250px;
+            object-fit: cover;
+        }
+
+ h1{
+            font-weight: bold;
+        }
+        .newsletter{
+      border-radius:28px;
+      overflow:hidden;
+      background:
+        linear-gradient(rgba(20,15,10,0.72), rgba(20,15,10,0.72)),
+        url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600');
+      background-size:cover;
+      background-position:center;
+      padding:55px;
+      color:#fff;
+      box-shadow:var(--shadow);
+    }
+
+    .newsletter p{
+      color:#eee;
+      margin-bottom:0;
+    }
+
+    .newsletter .form-control{
+      border:none;
+      padding:14px 16px;
+      border-radius:12px 0 0 12px !important;
+    }
+
+   
+
+ footer{
+       background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      color:#fff;
+      text-align:center;
+      
+      font-size:14px;
+      letter-spacing:0.5px;
+   
+    }
+    footer{
+      background:#241a15;
+      color:#fff;
+      margin-top:80px;
+      padding:70px 0 25px;
+    }
+
+    footer h4, footer h5{
+      font-weight:700;
+      margin-bottom:18px;
+    }
+
+    footer p, footer a{
+      color:#d8cdc5;
+      font-size:15px;
+    }
+
+    footer a:hover{
+      color:#fff;
+    }
+  footer-link{
+    color:#fff;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+.footer-link:hover{
+  color:#d4af37;
+  padding-left:5px;
+  }
+
+    </style>
+</head>
+
+<body>
+<div class="sale-bar">
+    THIS WEEKEND SALE : 20% OFF ON ALL PRODUCTS
+  </div>
+  
+    <section class="hero" id="home">
+   <nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <div class="custom-navbar w-100">
+             <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+      <a class="navbar-brand" href="/">FurniSphere</a>
+
+      <button class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link protected-link" href="/">Home</a>
+            <!-- <a class="nav-link" href="index.html">Home</a> -->
+          </li>
+
+          <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Products
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/category">All Products</a></li>
+        <li><a class="dropdown-item" href="/living_room">Living Room</a></li>
+        <li><a class="dropdown-item" href="/bedroom">Bedroom</a></li>
+        <li><a class="dropdown-item" href="/dining_room">Dining Room</a></li>
+        <li><a class="dropdown-item" href="/office">Office Furniture</a></li>
+        <li><a class="dropdown-item" href="/accent">Accent Chairs</a></li>
+         <li><a class="dropdown-item" href="/kids">Kids Collection</a></li>
+          <li><a class="dropdown-item" href="/bookshelves">Bookshelves Collection</a></li>
+    </ul>
+</li>
+<li class="nav-item">
+  <a class="nav-link protected-link" href="/product">Collection</a>
+</li>
+
+          <li class="nav-item">
+            <a class="nav-link protected-link" href="/about">About</a>
+           
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link protected-link" href="/contact">Contact</a>
+            
+          </li>
+
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+              Sign In
+            </a>
+          </li> -->
+        </ul>
+        
+            <div class="d-flex align-items-center" style="width: 200px;">
+               <input type="text"
+       id="searchInput"
+       class="form-control me-4"
+       placeholder="Search furniture...">
+      </div>
+        <!-- <div class="d-flex align-items-center gap-3">
+
+          <input type="text"
+                id="searchInput"
+                 class="search-box"
+                 placeholder="Search furniture..."> -->
+                 
+              <div class="nav-icons d-flex gap-3 align-items-center">
+                <a href="/wishlist" class="position-relative text-dark">
+                 <i class="bi bi-heart fs-5"></i>
+                 <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{ wishlist_count}}</span>
+                   </a>
+
+                 <li class="nav-item">
+  <a class="nav-link position-relative" href="/cart">
+    <i class="bi bi-cart"></i> 
+
+    <!-- 🔴 Badge -->
+    <span id="cartCount"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      {{cart_count}}
+    </span>
+  </a>
+</li>
+
+
+
+
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+  
+       
+<div class="container py-5">
+
+    <h1 class="text-center mb-3">Shop by Categories</h1>
+    <p class="text-center text-muted mb-5">
+        Explore stylish furniture for every room in your home.
+    </p>
+
+    <div class="row g-4">
+
+        <!-- Living Room -->
+        <div class="col-md-4">
+            <a href="/living_room" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                    <img src="https://images.unsplash.com/photo-1634822929331-ee4dc2c97fc4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZ1cm5pdHVyZSUyMGxpdmluZyUyMHJvb218ZW58MHx8MHx8fDA%3D" alt="Living Room" class="card-img-top">
+                    
+                    <div class="card-body">
+                        <h5>Living Room</h5>
+                        <p class="text-muted">8 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Bedroom -->
+        <div class="col-md-4">
+            <a href="/bedroom" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                    <img src="https://images.unsplash.com/photo-1757344454333-cc666252e596?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZ1cm5pdHVyZSUyMGJlZHJvb218ZW58MHx8MHx8fDA%3D" alt="Bedroom" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Bedroom</h5>
+                        <p class="text-muted">9 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Dining Room -->
+        <div class="col-md-4">
+            <a href="/dining_room" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                <img src="https://images.unsplash.com/photo-1600488999806-8efb986d87b1?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Dining Room" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Dining Room</h5>
+                        <p class="text-muted">8 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Office -->
+        <div class="col-md-4">
+            <a href="/office" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                     <img src="https://images.unsplash.com/photo-1720139290958-d8676702c3ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZnVybml0dXJlJTIwb2ZmaWNlfGVufDB8fDB8fHww" alt="Office" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Office</h5>
+                        <p class="text-muted">9 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+<!-- ---accent chair--- -->
+           <div class="col-md-4">
+            <a href="/accent" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                <img src="https://images.unsplash.com/photo-1714872245785-674ae3038d21?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXJtY2hhaXJ8ZW58MHx8MHx8fDA%3D" alt="Dining Room" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Accent Chair</h5>
+                        <p class="text-muted">3 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        
+        <!-- Kids -->
+        <div class="col-md-4">
+            <a href="/kids" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                     <img src="https://images.unsplash.com/photo-1693034433366-57fbb0286641?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lkcyUyMGJlZCUyMGZ1cm5pdHVyZXxlbnwwfHwwfHx8MA%3D%3D" alt="Office" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Kids Room </h5>
+                        <p class="text-muted">3 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+          <!-- Bookshelves -->
+        <div class="col-md-4">
+            <a href="/bookshelves" class="text-decoration-none text-dark">
+                <div class="card category-card">
+                     <img src="https://images.unsplash.com/photo-1543248939-4296e1fea89b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Ym9va3NoZWx2ZXMlMjBmdXJuaXR1cmV8ZW58MHx8MHx8fDA%3D" alt="" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Bookshelves</h5>
+                        <p class="text-muted">3 Products</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+    
+</div>
+</section>
+  <section class="pb-5">
+    <div class="container">
+      <div class="newsletter" data-aos="fade-up">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h2 class="fw-bold mb-2">Get 10% Off Your First Order</h2>
+            <p>Subscribe to our newsletter and be the first to know about special offers and new arrivals.</p>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="input-group">
+              <!-- <input type="email" class="form-control" placeholder="Enter your email address">
+              <button class="btn">Subscribe</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<footer id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h4>FurniSphere</h4>
+          <p>
+            Premium furniture for every home. Timeless design,
+            unmatched comfort, and elegant craftsmanship.
+          </p>
+
+          <div class="social-icons mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-pinterest"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Shop</h5>
+          <p><a href="/living_room" class="footer-link">Living Room</a></p>
+          <p><a href="/bedroom"  class="footer-link">Bedroom</a></p>
+          <p><a href="/dining_room"  class="footer-link">Dining Room</a></p>
+          <p><a href="/office"  class="footer-link">Office</a></p>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Customer Service</h5>
+          <p><a href="/customer">FAQ</a></p>
+          <p><a href="/customer">Shipping</a></p>
+          <p><a href="/customer">Returns</a></p>
+          <p><a href="/customer">Track Order</a></p>
+        </div>
+
+        <div class="col-md-2">
+          <h5>About Us</h5>
+          <p><a href="/about">Our Story</a></p>
+          <p><a href="/about">Careers</a></p>
+          <p><a href="/about">Blog</a></p>
+          <p><a href="/contact">Contact</a></p>
+        </div>
+
+        <div class="col-md-2">
+          <h5>Contact</h5>
+          <p>+91 98765 67890</p>
+          <p>info@furnisphere.com</p>
+          <p>Chandigarh, India</p>
+        </div>
+      </div>
+
+      <hr class="border-light opacity-25 my-4">
+      <p class="text-center mb-0">©️ 2026 FurniSphere. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    
+  </script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+     
+  <script>
+  
+ function searchProduct() {
+
+    let searchValue = document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (searchValue.includes("living")) {
+        window.location.href = "/living_room";
+    }
+    else if (searchValue.includes("bed")) {
+        window.location.href = "/bedroom";
+    }
+    else if (searchValue.includes("dining")) {
+        window.location.href = "/dining_room";
+    }
+    else if (searchValue.includes("office")) {
+        window.location.href = "/office";
+    }
+    else if (searchValue.includes("accent")) {
+        window.location.href = "/accent";
+    }
+    else if (searchValue.includes("kids")) {
+        window.location.href = "/kids";
+    }
+    else if (searchValue.includes("bookshelves")) {
+        window.location.href = "/bookshelves";
+    }
+    else {
+        alert("Category not found!");
+    }
+}
+
+document.getElementById("searchInput").addEventListener("keyup", function(event){
+
+    if(event.key==="Enter"){
+        searchProduct();
+    }
+
+});
+
+
+function updateCartCount(){
+
+    fetch("/cart_count")
+    .then(res=>res.json())
+    .then(data=>{
+
+        document.getElementById("cartCount").innerText=data.count;
+
+    });
+
+}
+function updateWishlistCount(){
+
+    fetch("/wishlist_count")
+    .then(res=>res.json())
+    .then(data=>{
+
+        document.getElementById("wishlistCount").innerText=data.count;
+
+    });
+
+}
+ window.onload=function(){
+ updateCartCount();
+ updateWishlistCount();
+    
+ 
+
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  };
+    
+
+</script>
+  
+
+
+</div>
+</body>
+</html>
+

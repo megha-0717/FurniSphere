@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us | FurniSphere</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#f8f5f1;
+    
+    font-family:'Poppins',sans-serif;
+}
+.navbar{
+    background:linear-gradient(90deg,#8b5e3c,#b9875e);
+}
+
+.navbar-brand{
+    font-size:2rem;
+    font-weight:bold;
+    color:white !important;
+}
+
+.nav-link{
+    color:white !important;
+    font-weight:500;
+}
+
+/* Hero Section */
+.about-hero{
+    background:linear-gradient(rgba(0,0,0,.6),
+    rgba(0,0,0,.6)),
+    url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1500');
+    background-size:cover;
+    background-position:center;
+    height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+}
+
+.about-hero h1{
+    font-size:60px;
+    font-weight:bold;
+}
+
+.about-hero p{
+    font-size:22px;
+}
+
+/* Section Title */
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    color:#8B5E3C;
+    font-weight:bold;
+}
+
+/* Cards */
+.info-card{
+    background:white;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.4s;
+    height:100%;
+}
+
+.info-card:hover{
+    transform:translateY(-12px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.info-card i{
+    font-size:45px;
+    color:#8B5E3C;
+    margin-bottom:20px;
+}
+
+/* Stats */
+.stats{
+    background:#8B5E3C;
+    color:white;
+    padding:70px 0;
+}
+
+.stat-box{
+    text-align:center;
+    padding:20px;
+}
+
+.stat-box h2{
+    font-size:45px;
+    font-weight:bold;
+}
+
+/* Promise Section */
+.promise{
+    background:white;
+    padding:80px 0;
+}
+
+.promise-box{
+    background:#f8f5f1;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.4s;
+}
+
+.promise-box:hover{
+    transform:scale(1.05);
+}
+
+.promise-box i{
+    font-size:40px;
+    color:#8B5E3C;
+}
+.info-card img{
+    height:220px;
+    width:100%;
+    object-fit:cover;
+    border-radius:15px;
+}
+
+.info-card .btn{
+    border-radius:10px;
+    margin-top:10px;
+}
+
+.info-card .btn:hover{
+    background:#8B5E3C;
+    border-color:#8B5E3C;
+    color:white;
+}
+/* Contact */
+.contact-section{
+    background:#fff;
+    padding:80px 0;
+}
+
+.contact-box{
+    background:#f8f5f1;
+    border-radius:20px;
+    padding:40px;
+}
+
+.footer{
+    background:#8B5E3C;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<a class="navbar-brand" href="/">
+FurniSphere
+</a>
+
+<button class="navbar-toggler bg-white"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="/">Home</a>
+</li>
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Products
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/category">All Products</a></li>
+        <li><a class="dropdown-item" href="/living_room">Living Room</a></li>
+        <li><a class="dropdown-item" href="/bedroom">Bedroom</a></li>
+        <li><a class="dropdown-item" href="/dining_room">Dining Room</a></li>
+        <li><a class="dropdown-item" href="/office">Office Furniture</a></li>
+        <li><a class="dropdown-item" href="/accent">Accent Chairs</a></li>
+         <li><a class="dropdown-item" href="/kids">Kids Collection</a></li>
+          <li><a class="dropdown-item" href="/bookshelves">Bookshelves Collection</a></li>
+    </ul>
+</li>
+<li class="nav-item">
+  <a class="nav-link protected-link" href="/product">Collection</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="/about">About</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="/contact">Contact</a>
+</li>
+
+</ul>
+           <div class="d-flex align-items-center" style="gap:15x;">
+               <input type="text"
+       id="searchInput"
+       class="form-control me-4"
+       placeholder="Search furniture...">
+                   </div>
+
+               <!-- <div class="nav-icons d-flex gap-3 align-items-center">
+                 <i class="bi bi-heart"></i>
+                  <i class="bi bi-cart3"></i> -->
+        
+              <div class="nav-icons d-flex gap-3 align-items-center">
+                <div id="wishlistContainer"></div>
+                <a href="/wishlist" class="position-relative text-dark">
+                 <i class="bi bi-heart fs-5"></i>
+                 <!-- <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span> -->
+                   </a>
+
+                 <li class="nav-item">
+  <a class="nav-link position-relative" href="/cart" onclick="openCart()">
+    <i class="bi bi-cart"></i> 
+
+    <!-- 🔴 Badge -->
+    <!-- <span id="cartCount"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span> -->
+  </a>
+</li>
+</div>
+</div>
+</div>
+</nav>
+<!-- Hero -->
+<section class="about-hero" data-aos="fade-down">
+    <h1>About FurniSphere</h1>
+    <p>Crafting Beautiful Spaces For Modern Living</p>
+</section>
+
+<!-- Our Story -->
+<section class="container py-5">
+
+<div class="section-title" data-aos="fade-up">
+    <h2>Our Story</h2>
+</div>
+
+<div class="row align-items-center">
+
+<div class="col-md-6" data-aos="fade-right">
+    <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800"
+    class="img-fluid rounded shadow">
+</div>
+
+<div class="col-md-6" data-aos="fade-left">
+    <h3>Who We Are</h3>
+
+    <p>
+        FurniSphere is a premium furniture brand dedicated to
+        transforming houses into beautiful homes. We offer
+        modern, luxurious, and affordable furniture collections
+        for living rooms, bedrooms, dining rooms, and offices.
+    </p>
+
+    <p>
+        Since our beginning, we have focused on exceptional
+        craftsmanship, timeless designs, and customer
+        satisfaction.
+    </p>
+</div>
+
+</div>
+</section>
+
+<!-- Mission & Vision -->
+<section class="container py-5">
+
+<div class="section-title">
+    <h2>Our Values</h2>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-4" data-aos="zoom-in">
+<div class="info-card text-center">
+<i class="bi bi-bullseye"></i>
+<h4>Our Mission</h4>
+<p>
+To provide elegant and high-quality furniture that
+makes every home stylish and comfortable.
+</p>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+<div class="info-card text-center">
+<i class="bi bi-eye"></i>
+<h4>Our Vision</h4>
+<p>
+To become India's most trusted furniture destination
+for modern and luxurious interiors.
+</p>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+<div class="info-card text-center">
+<i class="bi bi-heart-fill"></i>
+<h4>Customer First</h4>
+<p>
+Everything we do is designed around delivering
+the best experience to our customers.
+</p>
+</div>
+</div>
+
+</div>
+
+</section>
+<!-- Blog Section -->
+<section class="container py-5">
+
+<div class="section-title">
+    <h2>Latest From Our Blog</h2>
+    <p>Explore interior design ideas, furniture trends, and home styling inspiration.</p>
+</div>
+
+<div class="row g-4">
+
+    <!-- Blog 1 -->
+    <div class="col-md-4" data-aos="fade-up">
+        <div class="info-card">
+            <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600"
+                 class="img-fluid rounded mb-3">
+
+            <h4>Top Living Room Trends for 2026</h4>
+
+            <p>
+                Discover the latest trends in modern living room
+                furniture, colors, and décor ideas to create a stylish home.
+            </p>
+
+            <a href="/living_room" class="btn btn-outline-dark">Read More</a>
+        </div>
+    </div>
+
+    <!-- Blog 2 -->
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+        <div class="info-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"
+                 class="img-fluid rounded mb-3">
+
+            <h4>How to Choose the Perfect Bed</h4>
+
+            <p>
+                Learn how to select the ideal bed for comfort,
+                style, and functionality for your dream bedroom.
+            </p>
+
+            <a href="/bedroom" class="btn btn-outline-dark">Read More</a>
+        </div>
+    </div>
+
+    <!-- Blog 3 -->
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="info-card">
+            <img src="https://images.unsplash.com/photo-1505409859467-3a796fd5798e?w=600"
+                 class="img-fluid rounded mb-3">
+
+            <h4>5 Tips for Designing a Productive Home Office</h4>
+
+            <p>
+                Transform your workspace with smart furniture choices
+                that improve productivity and comfort.
+            </p>
+
+            <a href="/office" class="btn btn-outline-dark">Read More</a>
+        </div>
+    </div>
+
+</div>
+
+</section>
+
+<!-- Why Choose Us -->
+<section class="container py-5">
+
+<div class="section-title">
+<h2>Why Choose FurniSphere?</h2>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-3" data-aos="flip-left">
+<div class="info-card text-center">
+<i class="bi bi-gem"></i>
+<h5>Premium Quality</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="flip-left" data-aos-delay="100">
+<div class="info-card text-center">
+<i class="bi bi-truck"></i>
+<h5>Fast Delivery</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="flip-left" data-aos-delay="200">
+<div class="info-card text-center">
+<i class="bi bi-shield-check"></i>
+<h5>Secure Payments</h5>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="flip-left" data-aos-delay="300">
+<div class="info-card text-center">
+<i class="bi bi-arrow-repeat"></i>
+<h5>Easy Returns</h5>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- Statistics -->
+<section class="stats">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-md-3" data-aos="fade-up">
+<div class="stat-box">
+<h2>10K+</h2>
+<p>Happy Customers</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+<div class="stat-box">
+<h2>500+</h2>
+<p>Furniture Designs</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+<div class="stat-box">
+<h2>50+</h2>
+<p>Cities Served</p>
+</div>
+</div>
+
+<div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+<div class="stat-box">
+<h2>98%</h2>
+<p>Customer Satisfaction</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Customer Promise -->
+<section class="promise">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Our Promise</h2>
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-4" data-aos="fade-up">
+<div class="promise-box">
+<i class="bi bi-award"></i>
+<h5>Quality Guaranteed</h5>
+<p>Premium materials and exceptional craftsmanship.</p>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="150">
+<div class="promise-box">
+<i class="bi bi-headset"></i>
+<h5>24/7 Support</h5>
+<p>Dedicated customer support for all your needs.</p>
+</div>
+</div>
+
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+<div class="promise-box">
+<i class="bi bi-house-heart"></i>
+<h5>Beautiful Homes</h5>
+<p>Helping families create spaces they truly love.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Contact -->
+<section class="contact-section">
+
+<div class="container">
+
+<div class="section-title">
+<h2>Contact Us</h2>
+</div>
+
+<div class="contact-box text-center" data-aos="zoom-in">
+
+<h4>FurniSphere</h4>
+
+<p>
+<i class="bi bi-geo-alt"></i>
+Mumbai, Maharashtra, India
+</p>
+
+<p>
+<i class="bi bi-envelope"></i>
+support@furnisphere.com
+</p>
+
+<p>
+<i class="bi bi-telephone"></i>
++91 9876543210
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Footer -->
+<div class="footer">
+© 2026 FurniSphere. All Rights Reserved.
+</div>
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    
+</script>
+
+
+
+
+<script>
+  function searchProduct() {
+
+    let searchValue = document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (searchValue.includes("living")) {
+        window.location.href = "/living_room";
+    }
+    else if (searchValue.includes("bed")) {
+        window.location.href = "/bedroom";
+    }
+    else if (searchValue.includes("dining")) {
+        window.location.href = "/dining_room";
+    }
+    else if (searchValue.includes("office")) {
+        window.location.href = "/office";
+    }
+    else if (searchValue.includes("accent")) {
+        window.location.href = "/accent";
+    }
+    else if (searchValue.includes("kids")) {
+        window.location.href = "/kids";
+    }
+    else if (searchValue.includes("bookshelves")) {
+        window.location.href = "/bookshelves";
+    }
+    else {
+        alert("Category not found!");
+    }
+}
+
+document.getElementById("searchInput").addEventListener("keyup", function(event){
+
+    if(event.key==="Enter"){
+        searchProduct();
+    }
+
+});
+
+
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
+
+</body>
+</html>

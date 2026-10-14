@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Living Room Collection</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+
+body{
+    background:#f8f5f1;
+    font-family: 'Poppins', sans-serif;
+}
+.sale-bar{
+      background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      color:#fff;
+      text-align:center;
+      padding:10px 15px;
+      font-size:14px;
+      letter-spacing:0.5px;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      position:absolute;
+      top:18px;
+      left:0;
+      width:100%;
+      z-index:1000;
+    }
+
+    .custom-navbar{
+        background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      /* background:rgba(255,255,255,0.10); */
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:18px;
+      padding:14px 22px;
+    }
+
+    .navbar-brand{
+      color:black !important;
+      font-size:1.9rem;
+      font-weight:700;
+      letter-spacing:0.5px;
+    }
+
+    .nav-link{
+      color:black !important;
+      font-weight:500;
+      margin:0 10px;
+      position:relative;
+    }
+
+    .nav-link::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-3px;
+      width:0;
+      height:2px;
+      background:black;
+      transition:0.3s;
+    }
+
+    .nav-link:hover::after{
+      width:100%;
+    }
+
+    .search-box{
+      background:black;
+      border:1px solid rgba(255,255,255,0.25);
+      color:black;
+      border-radius:40px;
+      padding:10px 16px;
+      width:240px;
+      outline:none;
+    }
+
+    .search-box::placeholder{
+      color:#eee;
+    }
+
+    .nav-icons i{
+      color:black;
+      font-size:1.15rem;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .nav-icons i:hover{
+      transform:translateY(-2px);
+      color:var(--accent);
+    }
+    .hero{
+      min-height:100vh;
+      position:relative;
+      display:flex;
+      align-items:center;
+      background-color:cream;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      padding-top:120px;
+    }
+    .hero-content{
+      max-width:680px;
+      color:#fff;
+    }
+
+    .hero-subtitle{
+      display:inline-block;
+      color:var(--accent);
+      font-size:15px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .hero-content h1{
+      font-size:clamp(2.8rem, 5vw, 5.2rem);
+      line-height:1.08;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+
+    .highlight{
+      color:var(--accent);
+    }
+
+    .hero-content p{
+      font-size:1.08rem;
+      line-height:1.9;
+      color:#eee;
+      max-width:560px;
+      margin-bottom:32px;
+    }
+
+    .hero-btns{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    .btn-main{
+      background:var(--primary);
+      color:#fff;
+      border:none;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-main:hover{
+      background:var(--primary-dark);
+      color:#fff;
+      transform:translateY(-2px);
+    }
+
+    .btn-outline-light-custom{
+      border:1px solid rgba(255,255,255,0.6);
+      color:#fff;
+      padding:14px 28px;
+      border-radius:12px;
+      font-weight:600;
+      transition:0.3s;
+      background:transparent;
+    }
+
+    .btn-outline-light-custom:hover{
+      background:#fff;
+      color:var(--text);
+    }
+
+.section-title{
+    text-align:center;
+    margin:50px 0;
+}
+.product-card{
+    border:none;
+    border-radius:20px;
+    overflow:hidden;
+    transition:.4s;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    height:100%;
+}
+
+.product-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.product-card img{
+    height:280px;
+    object-fit:cover;
+}
+
+.card-body{
+    display:flex;
+    flex-direction:column;
+}
+
+.card-title{
+    font-size:22px;
+    font-weight:600;
+}
+
+.price{
+    color:#8B5E3C;
+    font-size:24px;
+    font-weight:700;
+}
+
+.card-text{
+    color:#6c757d;
+    line-height:1.6;
+    min-height:9px;
+    margin-bottom:18px;
+}
+
+
+
+
+
+.wishlist-btn{
+    position:absolute;
+    top:15px;
+    right:15px;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    border:none;
+    background:#fff;
+    transition: 0.3s;
+}
+.wishlist-btn:hover i{
+    transform: scale(1.2);
+}
+
+.add-cart{
+    background:#8B5E3C;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+}
+
+.add-cart:hover{
+    background:#6f472b;
+    color:white;
+}
+.qty-box{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+.qty-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    border-radius:8px;
+    background:#8B5E3C;
+    color:#fff;
+    font-size:20px;
+}
+
+.qty-value{
+    min-width:30px;
+    text-align:center;
+    font-weight:bold;
+    font-size:18px;
+}
+.popup-overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.popup-content{
+    position:relative;
+    max-width:80%;
+    max-height:80%;
+}
+
+.popup-content img{
+    width:100%;
+    max-height:80vh;
+    border-radius:15px;
+    object-fit:contain;
+}
+
+.close-popup{
+    position:absolute;
+    top:-15px;
+    right:-15px;
+    width:40px;
+    height:40px;
+    background:white;
+    border-radius:50%;
+    text-align:center;
+    line-height:40px;
+    font-size:30px;
+    cursor:pointer;
+    font-weight:bold;
+}
+.add-cart,.btn-dark{
+  padding: 8px 12px;
+  margin: 0;
+}
+footer{
+       background:linear-gradient(90deg,#8b5e3c,#b9875e);
+      color:#fff;
+      text-align:center;
+      
+      font-size:14px;
+      letter-spacing:0.5px;
+   
+    }
+</style>
+</head>
+<body>
+<!-- <div class="container mt-4">
+    <a href="index.html" class="btn btn-dark">
+        <i class="bi bi-house-door-fill"></i> Home
+    </a>
+</div> -->
+<div class="sale-bar">
+    THIS WEEKEND SALE : 20% OFF ON ALL PRODUCTS
+  </div>
+
+  <!-- HERO + NAVBAR -->
+  <section class="hero" id="home">
+
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <div class="custom-navbar w-100">
+          <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
+
+            <a class="navbar-brand m-0" href="/">FurniSphere</a>
+
+            <button class="navbar-toggler border-0 shadow-none text-white"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menu">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+             <div class="collapse navbar-collapse" id="menu">
+              <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+  <a class="nav-link " href="/">Home</a>
+</li>
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+        Products
+    </a>
+
+    <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/category">All Products</a></li>
+        <li><a class="dropdown-item" href="/living_room">Living Room</a></li>
+        <li><a class="dropdown-item" href="/bedroom">Bedroom</a></li>
+        <li><a class="dropdown-item" href="/dining_room">Dining Room</a></li>
+        <li><a class="dropdown-item" href="/office">Office Furniture</a></li>
+        <li><a class="dropdown-item" href="/accent">Accent Chairs</a></li>
+         <li><a class="dropdown-item" href="/kids">Kids Collection</a></li>
+          <li><a class="dropdown-item" href="/bookshelves">Bookshelves Collection</a></li>
+    </ul>
+</li>
+<li class="nav-item">
+  <a class="nav-link protected-link" href="/product">Collection</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link protected-link" href="/about">About</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link protected-link" href="/contact">Contact</a>
+</li>
+          
+               <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}">
+        Sign In
+    </a>
+</li>
+                
+              </ul>
+                  <div class="d-flex align-items-center" style="width: 200px;">
+               <input type="text"
+       id="searchInput"
+       class="form-control me-4"
+       placeholder="Search furniture...">
+       </div>
+              
+                 
+              <div class="nav-icons d-flex gap-3 align-items-center">
+                <a href="/wishlist" class="position-relative text-dark">
+                 <i class="bi bi-heart fs-5"></i>
+                 <span id="wishlistCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span>
+                   </a>
+
+                 <li class="nav-item">
+  <a class="nav-link position-relative" href="/cart">
+    <i class="bi bi-cart"></i> 
+
+    <!-- 🔴 Badge -->
+    <span id="cartCount"
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+      0
+    </span>
+  </a>
+</li>
+
+         
+</div>
+                </div>
+               </div>
+               </div>
+               </div>
+               </nav>
+<div class="container py-5">
+
+    <div class="section-title">
+        <h1>Living Room Collection</h1>
+        <p>Discover stylish sofas, coffee,tables,recliners,and decor pieces to create awarm and inviting living space.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <!-- Product 1 -->
+<div class="col-md-4" data-aos="fade-up">
+    <div class="card product-card position-relative">
+
+        <button class="wishlist-btn" data-name="Modern Living Room"
+    onclick="addToWishlist('Modern Living Room',39999,'https://images.unsplash.com/photo-1646987916641-1f3c8992daa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnVybml0dXJlJTIwbW9kZXJuJTIwbGl2aW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://images.unsplash.com/photo-1646987916641-1f3c8992daa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnVybml0dXJlJTIwbW9kZXJuJTIwbGl2aW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Modern Living Room</h5>
+            <p class="price">₹39,999</p>
+         <div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Elegant sofa set with a stylish coffee table, offering modern comfort and timeless appeal.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl1">
+    <button class="btn add-cart"
+        onclick="addToCart('Modern Living Room',39999,'cartControl1')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://images.unsplash.com/photo-1646987916641-1f3c8992daa2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8ZnVybml0dXJlJTIwbW9kZXJuJTIwbGl2aW5nJTIwcm9vbXxlbnwwfHwwfHx8MA%3D%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Product 2 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="card product-card position-relative">
+
+            <button class="wishlist-btn" data-name="Luxury Living Room"
+    onclick="addToWishlist('Luxury Living Room',55999,'https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMGx1eHVyeSUyMGxpdmluZyUyMHJvb218ZW58MHx8MHx8fDA%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMGx1eHVyeSUyMGxpdmluZyUyMHJvb218ZW58MHx8MHx8fDA%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Luxury Living Room</h5>
+            <p class="price">₹55,999</p>
+            <div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Premium living room furniture featuring plush seating and sophisticated contemporary design.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl2">
+    <button class="btn add-cart"
+        onclick="addToCart('Luxury Living Room',55999,'cartControl2')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://images.unsplash.com/photo-1648881806148-e5c51179c826?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZ1cm5pdHVyZSUyMGx1eHVyeSUyMGxpdmluZyUyMHJvb218ZW58MHx8MHx8fDA%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="card product-card position-relative">
+
+    <button class="wishlist-btn" data-name="Classic Sofa Set"
+    onclick="addToWishlist('Classic Sofa Set',44999,'https://plus.unsplash.com/premium_photo-1722048810826-751afbcc98c0?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://plus.unsplash.com/premium_photo-1722048810826-751afbcc98c0?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Classic Sofa Set</h5>
+ <p class="price">₹44,999</p>
+
+<div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Comfortable wooden sofa set with premium upholstery, perfect for family gatherings.
+</p>
+ <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl3">
+    <button class="btn add-cart"
+        onclick="addToCart('Classic Sofa Set',44999,'cartControl3')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://plus.unsplash.com/premium_photo-1722048810826-751afbcc98c0?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="col-md-4" data-aos="fade-up">
+    <div class="card product-card position-relative">
+
+           <button class="wishlist-btn" data-name="Minimalist Lounge"
+    onclick="addToWishlist('Minimalist Lounge',29999,'https://plus.unsplash.com/premium_photo-1723901831135-782c98d8d8e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZnVybml0dXJlJTIwbWluaW1hbGlzdCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://plus.unsplash.com/premium_photo-1723901831135-782c98d8d8e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZnVybml0dXJlJTIwbWluaW1hbGlzdCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Minimalist Lounge</h5>
+            <p class="price">₹29,999</p>
+<div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Clean and simple furniture collection designed for compact, modern living spaces.
+</p>
+            
+
+            <div class="d-flex align-items-center" style="gap:5px">
+           <div id="cartControl4">
+    <button class="btn add-cart"
+        onclick="addToCart('Minimalist Lounge',29999,'cartControl4')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://plus.unsplash.com/premium_photo-1723901831135-782c98d8d8e0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8ZnVybml0dXJlJTIwbWluaW1hbGlzdCUyMGxvdW5nZXxlbnwwfHwwfHx8MA%3D%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+    </div>
+   
+
+<!-- Product 5 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="card product-card position-relative">
+
+           <button class="wishlist-btn" data-name="Contemporary Living Space"
+    onclick="addToWishlist('Contemporary Living Space',49999,'https://images.unsplash.com/photo-1560449752-3fd4bdbe7df0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnVybml0dXJlJTIwY29udGVtcG9yYXJ5JTIwbGl2aW5nJTIwc3BhY2V8ZW58MHx8MHx8fDA%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://images.unsplash.com/photo-1560449752-3fd4bdbe7df0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnVybml0dXJlJTIwY29udGVtcG9yYXJ5JTIwbGl2aW5nJTIwc3BhY2V8ZW58MHx8MHx8fDA%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Contemporary Living Space</h5>
+          <p class="price">₹28,999</p>
+<div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Modern décor with stylish seating, elegant finishes, and exceptional everyday comfort.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl5">
+    <button class="btn add-cart"
+        onclick="addToCart('Contemporary Living Space',28999,'cartControl5')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://images.unsplash.com/photo-1560449752-3fd4bdbe7df0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZnVybml0dXJlJTIwY29udGVtcG9yYXJ5JTIwbGl2aW5nJTIwc3BhY2V8ZW58MHx8MHx8fDA%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Product 6 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+    <div class="card product-card position-relative">
+
+           <button class="wishlist-btn" data-name="Wooden Interior Set"
+    onclick="addToWishlist('Wooden Interior Set',35999,'https://plus.unsplash.com/premium_photo-1684863506867-4a33a434e940?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://plus.unsplash.com/premium_photo-1684863506867-4a33a434e940?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Wooden Interior Set</h5>
+            <p class="price">₹35,999</p>
+<div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Beautiful solid wood furniture set that brings warmth and natural elegance to your home.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl6">
+    <button class="btn add-cart"
+        onclick="addToCart('Wooden Interior Set',35999,'cartControl6')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://plus.unsplash.com/premium_photo-1684863506867-4a33a434e940?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Product 7 -->
+<div class="col-md-4" data-aos="fade-up">
+    <div class="card product-card position-relative">
+
+           <button class="wishlist-btn" data-name="Elegant Family Room"
+    onclick="addToWishlist('Elegant Family Room',59999,'https://media.istockphoto.com/id/1082748870/photo/interior-design-of-luxury-apartment-living-room.webp?a=1&b=1&s=612x612&w=0&k=20&c=RHJGTpRZvpz9k1rc-vf3m1_m1dGhd2yCtQ2U3QvCJDI=',this)">
+    <i class="bi bi-heart"></i>
+</button>
+        <img src="https://media.istockphoto.com/id/1082748870/photo/interior-design-of-luxury-apartment-living-room.webp?a=1&b=1&s=612x612&w=0&k=20&c=RHJGTpRZvpz9k1rc-vf3m1_m1dGhd2yCtQ2U3QvCJDI="
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Elegant Family Room</h5>
+            <p class="price">₹59,999</p>
+            <div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Luxurious family room collection with spacious seating and refined interior styling.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl7">
+    <button class="btn add-cart"
+        onclick="addToCart('Elegant Family Room',59999,'cartControl7')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://media.istockphoto.com/id/1082748870/photo/interior-design-of-luxury-apartment-living-room.webp?a=1&b=1&s=612x612&w=0&k=20&c=RHJGTpRZvpz9k1rc-vf3m1_m1dGhd2yCtQ2U3QvCJDI=')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Product 8 -->
+<div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+    <div class="card product-card position-relative">
+
+          <button class="wishlist-btn" data-name="Premium Living Suite"
+    onclick="addToWishlist('Premium Living Suite',64999,'https://media.istockphoto.com/id/1088006492/photo/3d-rendering-loft-luxury-living-room-with-bookshelf.webp?a=1&b=1&s=612x612&w=0&k=20&c=_-8D17cSJ9G8cpq4SH5z6JxNXigG3_DJrF5_jBtfOOw=',this)">
+    <i class="bi bi-heart"></i>
+</button>
+
+        <img src="https://media.istockphoto.com/id/1088006492/photo/3d-rendering-loft-luxury-living-room-with-bookshelf.webp?a=1&b=1&s=612x612&w=0&k=20&c=_-8D17cSJ9G8cpq4SH5z6JxNXigG3_DJrF5_jBtfOOw="
+        class="card-img-top">
+
+        <div class="card-body">
+            <h5>Premium Living Suite</h5>
+            <p class="price">₹64,999</p>
+          <div class="mb-2">
+        <span class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-half"></i>
+        </span>
+        <small class="text-muted">(4.5 | 218 Reviews)</small>
+    </div>
+
+    <!-- Availability -->
+    <p class="text-success fw-semibold mb-2">
+        <i class="bi bi-check-circle-fill"></i> In Stock
+    </p>
+
+
+<p class="card-text">
+Exclusive premium furniture crafted with superior materials for unmatched luxury and comfort.
+</p>
+
+            <div class="d-flex align-items-center" style="gap:5px">
+            <div id="cartControl8">
+    <button class="btn add-cart "
+        onclick="addToCart('Premium Living Suite',64999,'cartControl8')">
+        <i class="bi bi-cart-plus"></i>
+        Add to Cart
+    </button>
+</div>
+<button class="btn btn-outline-primary"
+        onclick="openImage('https://media.istockphoto.com/id/1088006492/photo/3d-rendering-loft-luxury-living-room-with-bookshelf.webp?a=1&b=1&s=612x612&w=0&k=20&c=_-8D17cSJ9G8cpq4SH5z6JxNXigG3_DJrF5_jBtfOOw=')">
+         <span>View</span>
+    </button>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+    <footer>
+      <!-- <hr class="border-light opacity-25 my-4"> -->
+      <p class="text-center mb-0 my-4">©️ 2026 FurniSphere. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+        const isLoggedIn={{'true' if logged_in else 'false'}};
+        
+     function searchProduct() {
+
+    let searchValue = document.getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (searchValue.includes("living")) {
+        window.location.href = "/living_room";
+    }
+    else if (searchValue.includes("bed")) {
+        window.location.href = "/bedroom";
+    }
+    else if (searchValue.includes("dining")) {
+        window.location.href = "/dining_room";
+    }
+    else if (searchValue.includes("office")) {
+        window.location.href = "/office";
+    }
+    else if (searchValue.includes("accent")) {
+        window.location.href = "/accent";
+    }
+    else if (searchValue.includes("kids")) {
+        window.location.href = "/kids";
+    }
+    else if (searchValue.includes("bookshelves")) {
+        window.location.href = "/bookshelves";
+    }
+    else {
+        alert("Category not found!");
+    }
+}
+
+document.getElementById("searchInput").addEventListener("keyup", function(event){
+
+    if(event.key==="Enter"){
+        searchProduct();
+    }
+
+});
+
+// ---------------- CART ----------------
+
+function addToCart(productName, price, controlId){
+
+    if(!isLoggedIn){
+         alert("Please log in first.");
+        window.location.href="/login?next="+encodeURIComponent(window.location.pathname);
+        return;
+    }
+
+    fetch("/add_to_cart",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name:productName,
+            price:price
+
+        })
+
+    })
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        if(!data.login){
+
+            window.location="/login";
+            return;
+
+        }
+
+        document.getElementById("cartCount").innerHTML=data.count;
+
+        renderQtyControl(productName,price,controlId);
+
+    });
+
+}
+
+// ---------------- RENDER QTY ----------------
+
+function renderQtyControl(productName,price,controlId){
+
+    fetch("/get_product_qty",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name:productName
+
+        })
+
+    })
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        if(data.qty<=0){
+
+            document.getElementById(controlId).innerHTML=`
+
+                <button class="btn add-cart"
+
+                onclick="addToCart('${productName}',${price},'${controlId}')">
+
+                <i class="bi bi-cart-plus"></i>
+
+                Add to Cart
+
+                </button>
+
+            `;
+
+        }
+
+        else{
+
+            document.getElementById(controlId).innerHTML=`
+
+            <div class="qty-box">
+
+                <button class="qty-btn"
+
+                onclick="changeProductQty('${productName}',${price},-1,'${controlId}')">
+
+                -
+
+                </button>
+
+                <span class="qty-value">
+
+                ${data.qty}
+
+                </span>
+
+                <button class="qty-btn"
+
+                onclick="changeProductQty('${productName}',${price},1,'${controlId}')">
+
+                +
+
+                </button>
+
+            </div>
+
+            `;
+
+        }
+
+    });
+
+}
+
+// ---------------- CHANGE QTY ----------------
+
+function changeProductQty(productName,price,change,controlId){
+
+    fetch("/change_qty",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+
+            name:productName,
+            change:change
+
+        })
+
+    })
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        document.getElementById("cartCount").innerHTML=data.count;
+
+        if(data.qty<=0){
+
+            document.getElementById(controlId).innerHTML=`
+
+            <button class="btn add-cart"
+
+            onclick="addToCart('${productName}',${price},'${controlId}')">
+
+            <i class="bi bi-cart-plus"></i>
+
+            Add to Cart
+
+            </button>
+
+            `;
+
+        }
+
+        else{
+
+            document.querySelector("#"+controlId+" .qty-value").innerHTML=data.qty;
+
+        }
+
+    });
+
+}
+
+// ---------------- CART COUNT ----------------
+
+function updateCartCount(){
+
+    fetch("/cart_count")
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        document.getElementById("cartCount").innerHTML=data.count;
+
+    });
+
+}
+
+// ---------------- RENDER ALL BUTTONS ----------------
+
+const productMapping = {
+    "Modern Living Room": {id:"cartControl1", price:39999},
+    "Luxury Living Room": {id:"cartControl2", price:55999},
+    "Classic Sofa Set": {id:"cartControl3", price:44999},
+    "Minimalist Lounge": {id:"cartControl4", price:29999},
+    "Contemporary Living Space": {id:"cartControl5", price:28999},
+    "Wooden Interior Set": {id:"cartControl6", price:35999},
+    "Elegant Family Room": {id:"cartControl7", price:59999},
+    "Premium Living Suite": {id:"cartControl8", price:64999}
+};
+
+function renderAllCartButtons(){
+
+    for(let product in productMapping){
+
+        renderQtyControl(
+            product,
+            productMapping[product].price,
+            productMapping[product].id
+        );
+
+    }
+
+}
+
+// ---------------- WISHLIST ----------------
+let wishlistItems=[];
+
+function addToWishlist(name, price, image, btn){
+
+    if(!isLoggedIn){
+        window.location.href="/login?next="+encodeURIComponent(window.location.pathname);
+        return;
+    }
+
+    fetch("/add_wishlist",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify({
+            name:name,
+            price:price,
+            image:image
+        })
+
+    })
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        if(!data.login){
+            window.location="/login";
+            return;
+        }
+
+        document.getElementById("wishlistCount").innerHTML=data.count;
+
+        if(data.status=="added"){
+
+            btn.innerHTML='<i class="bi bi-heart-fill text-danger"></i>';
+
+        }
+        else{
+
+            btn.innerHTML='<i class="bi bi-heart"></i>';
+
+        }
+
+    });
+
+}
+
+// ---------------- LOAD WISHLIST ----------------
+
+function loadWishlist(){
+
+    fetch("/wishlist_items")
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        wishlistItems=data;
+
+        updateHeartUI();
+
+    });
+
+}
+
+// ---------------- UPDATE HEART ICONS ----------------
+
+function updateHeartUI(){
+
+    let buttons=document.querySelectorAll(".wishlist-btn");
+
+    buttons.forEach(btn=>{
+
+        let name=btn.getAttribute("data-name");
+
+        let found=wishlistItems.find(item=>item.name===name);
+
+        if(found){
+
+            btn.innerHTML='<i class="bi bi-heart-fill text-danger"></i>';
+
+        }else{
+
+            btn.innerHTML='<i class="bi bi-heart"></i>';
+
+        }
+
+    });
+
+}
+
+// ---------------- WISHLIST COUNT ----------------
+
+function updateWishlistCount(){
+
+    fetch("/wishlist_count")
+
+    .then(response=>response.json())
+
+    .then(data=>{
+
+        document.getElementById("wishlistCount").innerHTML=data.count;
+
+    });
+
+}
+
+// ---------------- IMAGE POPUP ----------------
+
+function openImage(imageSrc){
+
+    document.getElementById("popupImg").src = imageSrc;
+
+    document.getElementById("imagePopup").style.display = "flex";
+
+}
+
+function closeImage(){
+
+    document.getElementById("imagePopup").style.display = "none";
+
+}
+
+// ---------------- PAGE LOAD ----------------
+
+window.onload = function(){
+
+    updateCartCount();
+
+    updateWishlistCount();
+
+    renderAllCartButtons();
+
+    loadWishlist();
+
+};
+
+// ---------------- AOS ----------------
+
+AOS.init({
+
+    duration:1000,
+
+    once:true
+
+});
+</script>
+<!-- Image Popup -->
+<div id="imagePopup" class="popup-overlay">
+
+    <div class="popup-content">
+
+        <span class="close-popup"
+              onclick="closeImage()">&times;</span>
+
+        <img id="popupImg" src="">
+    </div>
+
+</div>
+</body>
+</html>
+ 
