@@ -10,16 +10,24 @@
     #)
 
 import os
+import ssl
 import pymysql
 
 def connect():
+    ca_certificate = os.environ.get("DB_SSL_CA")
+
+    ssl_context = ssl.create_default_context(
+        cadata=ca_certificate
+    ) if ca_certificate else ssl.create_default_context()
+
     return pymysql.connect(
         host=os.environ["DB_HOST"],
         user=os.environ["DB_USER"],
         password=os.environ["DB_PASSWORD"],
         database=os.environ["DB_NAME"],
         port=int(os.environ.get("DB_PORT", "3306")),
-        charset="utf8mb4"
+        charset="utf8mb4",
+        ssl=ssl_context
     )
     
 def add_text(name,email,number,password):

@@ -3,3 +3,5 @@
 _pycache_/
 *.py[cod]
 .env
+ca.pem
+*.sql
